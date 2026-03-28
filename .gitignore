@@ -1,0 +1,14 @@
+# Ignorar o ambiente virtual (muito pesado e desnecessário no GitHub)
+venv/
+.venv/
+env/
+
+# Ignorar arquivos temporários que o Python cria sozinho
+**/__pycache__/
+*.pyc
+
+# Ignorar configurações do VS Code que são só do seu computador
+.vscode/
+
+# Ignorar o banco de dados local caso você mude para SQLite no futuro
+*.db

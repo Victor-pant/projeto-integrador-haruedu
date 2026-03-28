@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Haru Edu BI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; display: flex; align-items: center; height: 100vh; }
+        .login-container { max-width: 400px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0,0,0,0.1); }
+        .btn-primary { background-color: #004a99; border: none; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="text-center mb-4">
+            <h3>Haru Edu</h3>
+            <p class="text-muted">Acesso ao Dashboard Estratégico</p>
+        </div>
+        
+        {% if error %}
+        <div class="alert alert-danger" role="alert">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Usuário</label>
+                <input type="text" name="username" class="form-control" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
