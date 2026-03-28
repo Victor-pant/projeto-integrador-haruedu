@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BI Gestão - HaruEdu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 68, 68, 0.2);
+            border-color: #ff4444;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--primary-color, #4facfe);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .user-greeting {
+            color: var(--primary-color, #4facfe);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <header class="header">
+            <h1><i class="ri-dashboard-3-line"></i> BI Gestão</h1>
+            <div>
+                <span style="margin-right: 20px;">Olá, <span id="user-name" class="user-greeting">Gestor</span>!</span>
+                <a href="/index.html" class="logout-btn" id="logout-btn"><i class="ri-logout-box-r-line"></i> Sair</a>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="ri-group-line stat-icon"></i>
+                <div class="stat-value">1,248</div>
+                <div class="stat-label">Alunos Ativos</div>
+            </div>
+            <div class="stat-card">
+                <i class="ri-book-open-line stat-icon"></i>
+                <div class="stat-value">42</div>
+                <div class="stat-label">Cursos Disponíveis</div>
+            </div>
+            <div class="stat-card">
+                <i class="ri-wallet-3-line stat-icon"></i>
+                <div class="stat-value">R$ 142k</div>
+                <div class="stat-label">Faturamento do Mês</div>
+            </div>
+            <div class="stat-card">
+                <i class="ri-line-chart-line stat-icon"></i>
+                <div class="stat-value">+15%</div>
+                <div class="stat-label">Crescimento (vs Mês Anterior)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        const userStr = localStorage.getItem('haruedu_user');
+        if (!userStr) {
+            window.location.href = '/index.html';
+        } else {
+            const user = JSON.parse(userStr);
+            document.getElementById('user-name').textContent = user.name || user.username || 'Gestor';
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('haruedu_user');
+            window.location.href = '/index.html';
+        });
+    </script>
+</body>
+
+</html>

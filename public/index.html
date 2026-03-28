@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Gestão de Alunos para Faculdade EAD">
+    <title>Portal HARU EDU - Faculdade EAD</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="card-container">
+            <!-- Left Side: Branding -->
+            <div class="branding-panel">
+                <div class="logo">
+                    <i class="ri-book-read-fill"></i>
+                    <h2>Haru<span>Edu</span></h2>
+                </div>
+                <div class="branding-content">
+                    <h1>Sua jornada começa aqui</h1>
+                    <p>Acesse o portal para gerenciar seus cursos e estudantes.</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Forms -->
+            <div class="forms-panel">
+                <!-- Login Form -->
+                <div class="form-wrapper active" id="login-form-wrapper">
+                    <h3>Bem-vindo(a) de volta!</h3>
+                    <p class="subtitle">Faça login para acessar sua conta</p>
+                    <form id="login-form">
+                        <div class="input-group">
+                            <label for="login-username">Usuário</label>
+                            <div class="input-field">
+                                <i class="ri-user-line"></i>
+                                <input type="text" id="login-username" name="username" placeholder="Digite seu usuário"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="login-password">Senha</label>
+                            <div class="input-field">
+                                <i class="ri-lock-password-line"></i>
+                                <input type="password" id="login-password" name="password" placeholder="Sua senha"
+                                    required>
+                                <button type="button" class="toggle-password"><i class="ri-eye-off-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                        </div>
+                        <button type="submit" class="btn-primary" id="login-btn">
+                            <span>Entrar</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </form>
+                    <div class="switch-form">
+                        <p>Ainda não tem conta? <a href="#" id="to-register">Criar conta</a></p>
+                    </div>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="form-wrapper" id="register-form-wrapper">
+                    <h3>Criar nova conta</h3>
+                    <p class="subtitle">Junte-se à nossa plataforma acadêmica</p>
+                    <form id="register-form">
+                        <div class="input-group">
+                            <label for="reg-name">Nome Completo</label>
+                            <div class="input-field">
+                                <i class="ri-user-smile-line"></i>
+                                <input type="text" id="reg-name" name="name" placeholder="Ex: João Silva" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="reg-username">Usuário</label>
+                            <div class="input-field">
+                                <i class="ri-user-line"></i>
+                                <input type="text" id="reg-username" name="username" placeholder="Como quer ser chamado"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="reg-email">E-mail</label>
+                            <div class="input-field">
+                                <i class="ri-mail-line"></i>
+                                <input type="email" id="reg-email" name="email" placeholder="seu.email@exemplo.com"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="reg-password">Senha</label>
+                            <div class="input-field">
+                                <i class="ri-lock-password-line"></i>
+                                <input type="password" id="reg-password" name="password"
+                                    placeholder="Mínimo de 6 caracteres" required minlength="6">
+                                <button type="button" class="toggle-password"><i class="ri-eye-off-line"></i></button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary" id="register-btn">
+                            <span>Cadastrar</span>
+                            <i class="ri-user-add-line"></i>
+                        </button>
+                    </form>
+                    <div class="switch-form">
+                        <p>Já possui uma conta? <a href="#" id="to-login">Fazer login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification Area -->
+        <div id="toast-container"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
