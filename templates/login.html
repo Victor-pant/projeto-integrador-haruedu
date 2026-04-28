@@ -19,8 +19,17 @@
         </div>
         
         {% if error %}
-        <div class="alert alert-danger" role="alert">{{ error }}</div>
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
         {% endif %}
+        
+        <div class="text-center mt-3">
+        <p style="font-size: 0.85rem;" class="text-muted">
+        Ao acessar, você concorda com nossa 
+        <a href="{{ url_for('politica') }}" target="_blank">Política de Privacidade (LGPD)</a>.
+        </p>
+        </div>
 
         <form method="POST">
             <div class="mb-3">
